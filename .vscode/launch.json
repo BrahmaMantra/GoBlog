@@ -1,0 +1,24 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Launch main.go",
+            "type": "go",
+            "request": "launch",
+            "mode": "auto",
+            "program": "${workspaceFolder}/main.go",
+            "args": ["-C", "conf/conf.toml", "-L", "conf/seelog.xml"],
+            "env": {},
+            "buildFlags": "",
+            "delveConfig": {
+                "dlvLoadConfig": {
+                    "followPointers": true,
+                    "maxVariableRecurse": 1,
+                    "maxStringLen": 64,
+                    "maxArrayValues": 64,
+                    "maxStructFields": -1
+                }
+            }
+        }
+    ]
+}
