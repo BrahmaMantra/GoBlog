@@ -2,6 +2,7 @@ package controllers
 
 import (
 	"context"
+	"log"
 	"mime/multipart"
 	"os"
 	"strings"
@@ -55,6 +56,7 @@ func (u QiniuUploader) upload(file multipart.File, _ *multipart.FileHeader) (url
 
 	err = uploader.PutWithoutKey(context.Background(), &ret, token, file, size, &putExtra)
 	if err != nil {
+		log.Printf("upload file error:%v", err)
 		return
 	}
 	if strings.HasSuffix(cfg.Qiniu.FileServer, "/") {
@@ -62,5 +64,6 @@ func (u QiniuUploader) upload(file multipart.File, _ *multipart.FileHeader) (url
 	} else {
 		url = cfg.Qiniu.FileServer + "/" + ret.Key
 	}
+	log.Printf("upload file successfully, url:%s", url)
 	return
 }

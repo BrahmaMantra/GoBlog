@@ -1,0 +1,157 @@
+openapi: 3.0.0
+info:
+  title: Blog System API
+  description: 博客系统接口文档
+  version: 1.0.0
+servers:
+  - url: http://localhost:8080
+    description: 开发环境
+
+tags:
+  - name: Authentication
+    description: 用户认证相关
+  - name: Visitor
+    description: 访客操作
+  - name: Content
+    description: 内容浏览
+  - name: Administration
+    description: 管理后台操作
+
+paths:
+  /:
+    get:
+      tags: [Content]
+      summary: 首页
+      responses:
+        '200':
+          description: 成功获取首页内容
+
+  /index:
+    get:
+      tags: [Content]
+      summary: 首页（别名）
+      responses:
+        '200':
+          description: 成功获取首页内容
+
+  /signup:
+    get:
+      tags: [Authentication]
+      summary: 注册页面
+      responses:
+        '200':
+          description: 显示注册表单
+    post:
+      tags: [Authentication]
+      summary: 提交注册
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                username: 
+                  type: string
+                password:
+                  type: string
+      responses:
+        '302':
+          description: 注册成功跳转
+
+  /signin:
+    get:
+      tags: [Authentication]
+      summary: 登录页面
+      responses:
+        '200':
+          description: 显示登录表单
+    post:
+      tags: [Authentication]
+      summary: 提交登录
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                username: 
+                  type: string
+                password:
+                  type: string
+      responses:
+        '302':
+          description: 登录成功跳转
+
+  /visitor/new_comment:
+    post:
+      tags: [Visitor]
+      summary: 提交评论
+      security:
+        - BearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                content: 
+                  type: string
+                post_id:
+                  type: integer
+      responses:
+        '200':
+          description: 评论提交成功
+
+  /admin/post:
+    get:
+      tags: [Administration]
+      summary: 获取文章列表
+      security:
+        - BearerAuth: []
+      responses:
+        '200':
+          description: 成功获取文章列表
+
+  /admin/new_post:
+    post:
+      tags: [Administration]
+      summary: 创建新文章
+      security:
+        - BearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                title: 
+                  type: string
+                content:
+                  type: string
+                tags:
+                  type: array
+                  items: 
+                    type: string
+      responses:
+        '201':
+          description: 文章创建成功
+
+# 其他路由按照相同模式补充...
+
+components:
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+
+  responses:
+    UnauthorizedError:
+      description: 认证信息缺失或无效
+      
+security:
+  - BearerAuth: []

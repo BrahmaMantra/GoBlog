@@ -61,7 +61,7 @@ func main() {
 	}()
 
 	// 设置Gin运行模式为ReleaseMode
-	gin.SetMode(gin.DebugMode)
+	gin.SetMode(gin.ReleaseMode)
 	router := gin.Default()
 
 	// 设置模板、会话和共享数据中间件

@@ -1,4 +1,4 @@
-# wblog 
+# goBlog 
 [示例地址](http://blog.wangsy.me/)
 
 ## 一、初衷
@@ -14,7 +14,7 @@
 
 ## 三、项目结构
 ```
--wblog
+-goBlog
     |-conf 配置文件目录
     |-controllers 控制器目录
     |-helpders 公共方法目录
@@ -44,7 +44,7 @@
 ## 五、运行项目
 ```
 git clone
-cd wblog
+cd goBlog
 go mod tidy
 go run main.go
 ```
@@ -62,11 +62,11 @@ go run main.go
    - conf #配置文件目录
    - static #静态资源目录
    - views #模板目录
-   - wblog #可执行文件
+   - goBlog #可执行文件
 
 ## 七、使用方法
 ### 使用说明
-1. 执行`go run main.go -g`或编译后执行`wblog -g`生成示例配置文件`conf/conf.sample.toml` (示例配置文件均为系统默认配置，可全部删除仅保留自己所需配置)
+1. 执行`go run main.go -g`或编译后执行`goBlog -g`生成示例配置文件`conf/conf.sample.toml` (示例配置文件均为系统默认配置，可全部删除仅保留自己所需配置)
 2. 修改conf.toml，设置signup_enabled = true
 3. 访问http://xxx.xxx/signup 注册管理员账号 
 4. 修改conf.toml，设置signup_enabled = false
@@ -84,7 +84,7 @@ go run main.go
    accesskey = 'AK'
    secretkey = 'SK'
    fileserver = '自定义域名，例如https://example.com'
-   bucket = 'wblog'
+   bucket = 'goBlog'
    ```
 3. 如果需要保存图片到[sm.ms图床](https://sm.ms)，请自行注册账号并获取APIKey，并修改配置文件
    ```toml
@@ -109,13 +109,13 @@ go run main.go
    host = 'smtp.163.com:25'
    ```
 6. GoLand运行时，修改`Run/Debug Configurations` > `Output Directory`选择到项目根目录，否则报模板目录找不到
-7. 数据库切换，使用MySQL数据库时，请先创建`wblog`数据库(数据库名自便，与配置文件一致即可)
+7. 数据库切换，使用MySQL数据库时，请先创建`goBlog`数据库(数据库名自便，与配置文件一致即可)
    ```toml
    [database]
    dialect = 'sqlite'
-   dsn = 'wblog.db?_loc=Asia/Shanghai'
+   dsn = 'goBlog.db?_loc=Asia/Shanghai'
    #dialect = 'mysql'
-   #dsn = 'root:mysql@/wblog?charset=utf8&parseTime=True&loc=Asia%2FShanghai'
+   #dsn = 'root:mysql@/goBlog?charset=utf8&parseTime=True&loc=Asia%2FShanghai'
    ```
 
 ## 八、效果图
@@ -126,7 +126,3 @@ go run main.go
 
 ![file](screenshots/admin.png)
 
-## 九、捐赠
-如果项目对您有帮助，打赏个鸡腿吃呗！  
-<img src="https://raw.githubusercontent.com/wangsongyan/wblog/master/screenshots/alipay.png" width = 40% height = 40% />
-<img src="https://raw.githubusercontent.com/wangsongyan/wblog/master/screenshots/weixin.png" width = 40% height = 40% />

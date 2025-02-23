@@ -1,9 +1,9 @@
 addr = ':8090'
 signup_enabled = true
-title = 'Wblog'
-session_secret = 'wblog'
+title = 'GoBlog'
+session_secret = 'goblog'
 domain = '[!!]'
-file_server = 'smms'
+file_server = 'qiniu'
 notify_emails = ''
 page_size = 10
 public = 'static'
@@ -11,10 +11,10 @@ view = 'views/**/*'
 
 [database]
 dialect = 'sqlite'
-dsn = 'wblog.db?_loc=Asia/Shanghai'
+dsn = 'goblog.db?_loc=Asia/Shanghai'
 
 [seo]
-description = 'Wblog,talk about golang,java and so on.'
+description = 'GoBlog,talk about golang,java and so on.'
 
 [seo.author]
 name = 'wangsy'
@@ -25,7 +25,7 @@ enabled = false
 accesskey = ''
 secretkey = ''
 fileserver = ''
-bucket = 'wblog'
+bucket = 'GoBlog'
 
 [smms]
 enabled = false

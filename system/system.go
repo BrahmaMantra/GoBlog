@@ -97,18 +97,18 @@ func defaultConfig() Configuration {
 	return Configuration{
 		Addr:          ":8090",
 		Domain:        "https://example.com",
-		Title:         "Wblog",
-		SessionSecret: "wblog",
+		Title:         "GoBlog",
+		SessionSecret: "goblog",
 		FileServer:    "smms",
 		PageSize:      10,
 		PublicDir:     "static",
 		ViewDir:       "views/**/*",
 		Database: Database{
 			Dialect: "sqlite",
-			DSN:     "wblog.db?_loc=Asia/Shanghai",
+			DSN:     "goblog.db?_loc=Asia/Shanghai",
 		},
 		Seo: Seo{
-			Description: "Wblog,talk about golang,java and so on.",
+			Description: "GoBlog,talk about golang,java and so on.",
 			Author: Author{
 				Name:  "wangsy",
 				Email: "wangsy0129@qq.com",
@@ -118,7 +118,7 @@ func defaultConfig() Configuration {
 			AccessKey:  "",
 			SecretKey:  "",
 			FileServer: "",
-			Bucket:     "wblog",
+			Bucket:     "goBlog",
 		},
 		Smms: Smms{
 			ApiUrl: "https://sm.ms/api/v2/upload",
