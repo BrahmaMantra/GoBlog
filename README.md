@@ -56,10 +56,15 @@ go run main.go
 
 ## 六、使用方法
 ### 使用说明
+#### 常规部署
 1. 执行`go run main.go -g`或编译后执行`goBlog -g`生成示例配置文件`conf/conf.sample.toml` (示例配置文件均为系统默认配置，可全部删除仅保留自己所需配置)
 2. 修改conf.toml，设置signup_enabled = true
 3. 访问http://xxx.xxx/signup 注册管理员账号 
 4. 修改conf.toml，设置signup_enabled = false
+
+#### Docekr
+1. 配置好conf后执行`docker build -t goblog .`
+2. 运行`docker run -p 8090:8090 goblog`
 
 ### 注意事项
 1. 图床切换（**需开启对应图床配置**）
